@@ -1,0 +1,543 @@
+
+%Schriftgroesse, Layout, Papierformat, Art des Dokumentes
+%Hinweis: statt oneside einfach twoside für doppelseitigen druck!
+\documentclass[12pt,oneside,a4paper,bibtotoc,liststotoc,pointlessnumbers]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+%etwas schoenere serifen-schrift (mit schnoerkel)
+%
+%\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+%\usepackage{microtype}
+
+%bei vielen problemen mit trennung von woertern... macht, dass wörter nicht andauernd getrennt werden
+\sloppy
+
+%standard typewriter-font (fuer url oder code) 
+\renewcommand\ttdefault{cmtt}
+
+%Wer fuer Ueberschriften eine Schrift ohne Schnoerkel will,
+%bitte folgende Zeile aktivieren:
+\renewcommand\sfdefault{cmss}
+
+%Ansonsten aktivieren wir die normale Serifen-Schrift fuer die Ueberschriften
+%\renewcommand\sfdefault{cmr}
+
+%Ansonsten aktivieren wir die Serifen-Schrift palatino fuerr die Ueberschriften
+%oben muss \usepackage{palotino} aktiviert sein!
+%\renewcommand\sfdefault{ppl}
+
+
+%Einstellungen der Seitenraender
+\usepackage[inner=3.0cm,outer=3.0cm,top=3cm,bottom=2.5cm]{geometry}
+
+%fürs Binden ...
+%\usepackage[inner=3.0cm,outer=3.0cm,top=3cm,bottom=2.5cm]{geometry}
+
+%neue Rechtschreibung
+%\usepackage{ngerman}
+
+%Umlaute ermoeglichen, je nach Fileformat UTF8 oder ANSI
+%\usepackage[utf8]{inputenc}
+%\usepackage[ansinew]{inputenc}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[german]{babel}
+
+%\usepackage{amsmath}
+%\usepackage{txfonts}
+
+%Kopf- und Fusszeile
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+%Kopfzeile links bzw. innen
+\fancyhead[LO,RE]{\nouppercase{\leftmark}}
+%Kopfzeile rechts bzw. auÃen
+\fancyhead[RO,LE]{\thepage}
+%Linie oben
+\renewcommand{\headrulewidth}{0.5pt}
+
+%Linie unten - bei mir auskommentiert wegen Fussnoten zur Literatur
+%\renewcommand{\footrulewidth}{0.5pt}
+
+%Fuer URLs in einer monospace typewriter font. Verwendung: \url{www.hallo.de}
+\usepackage{url}
+
+%externe PDFs einbinden
+%\usepackage{pdfpages}
+  
+%Paket zur Modifizierung der Fussnote. perpage resettet den Counter pro Seite neu
+%\usepackage[
+ %  bottom,      % Footnotes appear always on bottom. This is necessary
+                % especially when floats are used
+   %stable,      % Make footnotes stable in section titles
+  % perpage,     % Reset on each page
+   %para,       % Place footnotes side by side of in one paragraph.
+   %side,       % Place footnotes in the margin
+   %ragged,      % Use RaggedRight
+   %norule,     % suppress rule above footnotes
+  % multiple,    % rearrange multiple footnotes intelligent in the text.
+   %symbol,     % use symbols instead of numbers
+%]%{footmisc} 
+
+%Macht Fuï¿œnotenhinweiï¿œe im wikipedia-Format: hochgestellte kleine Zahl in eckigen Klammern
+%Fuer nur hochgestellte kleine Zahlen: diese beiden Zeilen auskommentieren
+\deffootnotemark{\textsuperscript{[\thefootnotemark]}}
+\deffootnote[1em]{1.5em}{1em}{\textsuperscript{[\thefootnotemark]}}
+
+%Fuer die Biblitothekseinbindung, kann so gelassen werden, da der naechste Befehl eigentlich alles regelt
+%\usepackage[%
+   %round,   %(default) for round parentheses;
+ %  square,   % for square brackets;
+   %curly,   % for curly braces;
+   %angle,   % for angle brackets;
+   %colon,   % (default) to separate multiple citations with colons;
+  % comma,   % to use commas as separaters;
+   %authoryear,% (default) for author-year citations;
+   %numbers,   % for numerical citations;
+   %super,   % for superscripted numerical citations, as in Nature;
+   %sort,      % orders multiple citations into the sequence in which they appear in the list of references;
+   %sort&compress,    % as sort but in addition multiple numerical citations
+                   % are compressed if possible (as 3-6, 15);
+   %longnamesfirst,  % makes the first citation of any reference the equivalent of
+                   % the starred variant (full author list) and subsequent citations
+                   %normal (abbreviated list);
+   %sectionbib,      % redefines \thebibliography to issue \section* instead of \chapter*;
+                   % valid only for classes with a \chapter command;
+                   % to be used with the chapterbib package;
+   %nonamebreak,     % keeps all the authors names in a citation on one line;
+                   %causes overfull hboxes but helps with some hyperref problems.
+%]{natbib} 
+
+%Festlegung Art der Zitierung - alphanumerische DIN-Methode: Abkuerzung Autor + Jahr
+%\bibliographystyle{alphadin}
+
+%zum Zitieren
+%\usepackage{cite}
+
+%Fuer das Glossar - noch nicht Benutzt...
+%\usepackage[toc,acronym, section=section, nonumberlist]{glossaries}
+
+%Fuer 1,5-fachen Zeilenabstand
+%\RequirePackage{setspace}
+%\onehalfspacing
+
+%folgende Woerter werden von latex NICHT mehr getrennt, sehr praktisch
+%mehrere woerter durch leerzeichen trennen, fuer mehrsilbige woerter kann 
+%man mit - an den "trennpunkten" unterteilen
+\hyphenation{Java Giesecke Devrient Hash-funk-tion Hash-funk-tionen Hash-wert CryptoApi PCGQueueServer PCGCryptoApi CryptoApi PCGRequestQueue PCGDatabaseUtil dvdshop}
+
+
+\setlength{\abovecaptionskip}{1.0ex} % Abstand ueber Bildbeschriftung
+\setlength{\belowcaptionskip}{0.5ex} % Abstand unter Bildbeschriftung
+\setlength{\parindent}{0pt}			% Absatzeinrueckung (keine)
+\setlength{\parskip}{6pt}		
+
+%Inhaltsverzeichnis: kleine roemische Zahlen
+\newenvironment{inhaltsverzeichnis}{
+\pagenumbering{roman}	
+%\pagestyle{fancy}
+}
+
+
+\usepackage{listings}		% fuerr Quelltext
+\usepackage{caption3}		% Bildbeschriftung
+\usepackage{xcolor} % Farbe
+\usepackage{graphicx} % -> bilder!
+
+% Fussnotenlinie
+%Formatierungsregeln fuer Listings
+\lstset{%
+language=java, %Setzt die Sprache
+basicstyle=\scriptsize,% Setzt den Standardstil
+keywordstyle=\color{black}\bfseries, % Setzt den Stil fuer Schluesselwoerter
+identifierstyle=, % Identifier bekommen keine gesonderte formatierung
+commentstyle=\color{black}, % Stil fuer Kommentare
+stringstyle=\ttfamily, % Stil fuer Strings (gekennzeichnet mit"String")
+breaklines=true, % Zeilen werden umgebrochen
+numbers=left, % Zeilennummern links
+numberstyle=\tiny, % Stil fuer die Seitennummern
+frame=single, % Rahmen
+backgroundcolor=\color{white}, % Hintergrundfarbe
+%caption={Java-Code} % Caption
+}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkred}{rgb}{.8,0,0}
+
+\usepackage[%
+		pdftex,
+		colorlinks,
+ %  bookmarks, 
+    bookmarksnumbered=true, 
+    bookmarksopen=true, 
+    bookmarksopenlevel=1,
+%    hyperfootnotes=true,
+		linkcolor=darkred, %standard red,
+		citecolor=darkred, %standard green
+		urlcolor=darkred, %standard cyan
+		filecolor=darkred, %  
+   % menubordercolor={0 1 1},    
+   % urlbordercolor={1 0 0}      
+ %   hyperfootnotes=true,
+ %   hyperindex=true,
+ %   pdfpagelayout=OneColumn, 
+ %   plainpages=false, 
+ %   pdfpagelabels,
+    pdfusetitle,
+    pdfstartpage={1},
+    pdfstartview={FitV},
+  %  pdfauthor={},
+  %  pdftitle={Bachelorarbeit}  
+]{hyperref}
+\renewcommand{\footnoterule}{\vfill\rule{7.3cm}{0.5pt}\vspace{1ex}}	
+
+%Erneuerung des Namens fuer das Listingsverzeichnis von "Listings" -> "Listingsverzeichnis"
+\renewcommand{\lstlistlistingname}{Listingsverzeichnis}
+
+\renewcommand\figurename{Abb.}
+
+%\renewcommand\listfigurename{Diagrammverzeichnis}}
+
+%Erneuerung des Namens fuer das Literaturverzeichnis von "Literatur" -> "Literaturverzeichnis"
+\renewcommand\refname{Literaturverzeichnis}
+
+\usepackage{epstopdf}
+%\usepackage{subfigure}
+%Los gehts
+\begin{document}
+
+
+%%Titelseite -> muss durch FH-Vorlage ersetzt oder an diese angepasst werden
+%\title{
+%\includegraphics[scale=0.16]{hs.pdf} \qquad  \includegraphics[scale=0.35]{pics/gd.eps}  \\ \vspace*{50pt}
+%Bachelorarbeit in Informatik \\ \vspace*{30pt} \textbf{Generierung sicherer Produktcodes in einer serviceorientieren Client-Server-Architektur} \\ 
+%%\includegraphics[scale=1.0]{pics/giesecke_devrient_ger.png} \\
+%}
+%\author{Benedikt Lippert}
+%\thispagestyle{empty}
+%\maketitle
+%\thispagestyle{empty}
+
+%\hypertarget{title}{}
+%\pdfbookmark[1]{Titelblatt}{title}
+\thispagestyle{empty}
+
+\begin{center}
+\includegraphics[scale=0.16]{hs.pdf}\\
+\vspace*{10pt}
+\textsf{\textbf{\large{Hochschule Landshut}}}\\
+\textsf{\normalsize{Fakultät Informatik \\ Studiengang Informatik (Master)}}\\
+%Falls noch ein Firmenlogo reinsoll, folgenden Block einkommentieren und Bild und Titel tauschen.
+%Achtung: vspaces müssen dann angepasst werden danach, sonst rutscht alles unten raus
+%\vspace*{40pt}
+%\includegraphics[scale=0.16]{pics/hs.pdf}\\
+%\vspace*{10pt}
+%\textbf{\large{Firma}}\\
+%\normalsize{ggf. Abteilung}\\
+\vspace*{70pt}
+\textsf{\textbf{\Huge{Pflichtenheft zum Praktikum }}} \\
+\vspace*{20pt}
+\textsf{\textbf{\large{Softwarearchitektur und -design: Webapplikation dvdshop}}}\\
+\end{center}
+\vspace*{180pt}
+
+\textsf{\large{Stand: 04.11.2010}}\\
+\vspace*{20pt}
+\\ 
+
+Teilnehmer: \hspace*{0.5cm}Michael Bien, Benedikt Lippert,\\
+\hspace*{2.75cm}Christian Reinbold, Mathias Schreck\\
+%\vspace*{6pt}
+
+%Betreuer: \hspace*{0.95cm}Prof. Dr. Wolfgang Jürgensen\\
+
+
+
+
+\newpage
+\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+
+%\hypertarget{abstract}{}
+%\pdfbookmark[1]{Kurzzusammenfassung / Abstract}{abstract}
+\thispagestyle{empty}
+\section*{Kurzzusammenfassung}
+Dies ist das Pflichtenheft zur semesterbegleitenden Praktikumsaufgabe der Vorlesung "`Softwarearchitekturen und -design" des Master-Studiengangs Informatik an der Hochschule Landshut im Wintersemester 2010/2011. Ziel des Praktikums ist eine Webapplikation, die es ermöglicht, den Medienbestand einer Videothek online einzusehen, Titel vorzumerken sowie für eine gewisse Zeit zu reservieren. \par
+Dieses Pflichtenheft ist nach dem Gliederungsvorschlag von Prof. Dr. Helmut Balzert (Ruhr-Universität Bochum) aus seinem Buch "`Lehrbuch der Softwaretechnik"\footnote{Helmut Balzert - Lehrbuch der Softwaretechnik \url{http://amazon.de/o/ASIN/3827417058/}} strukturiert und gibt eine Übersicht der Anforderungen an der in diesem Studienpraktikum zu realisierenden Softwarekomponente.
+%\section*{Abstract}
+%Wenn gewünscht, auch noch eine englische Zusammenfassung...
+
+\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+\begin{inhaltsverzeichnis}
+\clearpage% oder \cleardoublepage bei twoside
+\begingroup
+  %\pagestyle{plain}
+ % \pdfbookmark[1]{Inhaltsverzeichnis}{toc}
+  \tableofcontents
+  %\cleardoublepage
+\endgroup
+
+\end{inhaltsverzeichnis}
+
+\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%\newpage
+
+\section{Zielbestimmung}
+dvdshop soll eine Webapplikation sein, die es Kunden einer Videothek ermöglicht, von überall, z.B. von zu Hause oder von unterwegs, über das Internet auf das Medienverzeichnis der Videothek zuzugreifen und verschiedene Aktivitäten anzustoßen.\par
+In diesem und in den folgenden Kapiteln werden diese Aktivitäten und der  darüber hinaus bestehende Funktionsumfang erläutert.
+\subsection{Muss-Kriterien}
+Die im Folgenden genannten Punkte stellen unabdingbare Produktleistungen dar
+\begin{itemize}
+\item Jeder Kunde kann den Medienkatalog der Videothek einsehen, z.B. in Form einer geordneten Liste.
+\item Registrierte Kunden können bis zu drei Medien für 30 Minuten reservieren, was bedeutet, dass diese Medien in diesem Zeitraum von keinem anderen Kunden reserviert oder ausgeliehen werden können.
+\item Registrierte Kunden können aktuell nicht verfügbare Medien "`vormerken" und werden per eMail informiert, sobald der Titel wieder ausleihbar ist.
+\item Administratoren der Webapplikationen haben Möglichkeiten, online Medien- und Kundendaten zu verwalten (einsehen, aktualisieren, entfernen).
+\item Um die o.g. Punkte zu realisieren, muss eine geeignete Benutzergruppentrennung erfolgen. 
+\item Die Anwendung muss auf den gängigsten Browsern und Betriebssystemen voll funktionieren.
+\end{itemize}
+\subsection{Wunsch-Kriterien}
+Folgende Punkte sind nicht zwingend in der ersten Version der Webapplikation zu erstellen, würden aber das Angebot an Funktionen erweitern:
+\begin{itemize}
+\item Registrierte Benutzer können eine Liste aller ihrer bisher ausgeliehenen Titel einsehen.
+\item Von einem registrierten Benutzer in der Vergangenheit ausgeliehene Titel werden für ihn in Zukunft besonders markiert.
+\item Jedes Medium wird nicht nur textuell und durch eine Bilddatei repräsentiert, sondern darüber hinaus wird ein offizieller Trailer oder Filmausschnitt als multimediales Element mit eingebunden.
+\item Die Medien bekommen verschiedene Attribute wie Genre, Erscheinungsjahr, Personen (Regisseure, Schauspieler ...) zugeordnet, die für spätere Such- und Sortierfunktionen genutzt werden können.
+\item Die Benutzer sollen Möglichkeiten bekommen, miteinander über bestimmte Themen miteinander zu kommunizieren.
+\end{itemize}
+\subsection{Ausschluss-Kriterien}
+Nicht Bestandteil sind Schnittstellen an evtl. schon bestehende Medienverwaltungssysteme oder die Erstellung weiterer Benutzerschnittstellen z.B. für mobile Endgeräte (Smartphones etc.).
+\newpage
+\section{Produkteinsatz}
+\subsection{Anwendungsbereich}
+Die Webapplikation wird als reine webbasierte Client-Server-Anwendung konzipiert und als eine solche später betrieben.\par
+Die Anwendung kann auf einem direkt vom Anbieter betriebenen Web- bzw. Anwendungsserver oder auf einem dedizierten Server gehostet und betrieben werden.\par
+Als Clients sind ausschließlich die Kunden vorgesehen, die über ihre Webbrowser und der Internetpräsenz des Anbieters Zugriff auf die Anwendung erhalten. 
+\subsection{Benutzergruppen}
+Die Webanwendung zielt auf alle Bestandskunden sowie auf potentielle Neukunden der Videothek ab und soll auch von diesen benutzt werden.\par
+Der Funktionsumfang der Webanwendung ist je nach Status des Anwenders variabel.
+\begin{itemize}
+\item Nicht-Registrierte Kunden, die sich noch keinen Account eingerichtet haben, können nicht alle angebotenen Funktionen nutzen und haben auch nur eingeschränkten Medien-Zugriff (Filterung z.B. aller FSK18-Titel usw.).
+\item Registrierte und eingeloggte Kunden können den vollen Funktionsumfang nutzen. Da einem Benutzerkonto für die Webanwendung eine persönliche Registrierung in den Räumlichkeiten der Videothek stattfand, bei der auch eine Alterskontrolle durchgeführt wurde, haben diese Benutzer vollen Zugriff auf alle Titel.
+\item Administratoren können den Datenbestand einsehen, modifizieren und Inhalte hinzufügen und löschen.
+\end{itemize}
+\subsection{Betriebsbedingungen}
+Es ist ein späterer 24h-Betrieb der Webapplikation auf einem in 2.1 genannten System vorgesehen.
+\newpage
+\section{Produktumgebung}
+\subsection{Software}
+\texttt{\textbf{dvdshop}} wird als Webanwendung auf Basis der Java Platform, Enterprise Edition Version 6 (JEE 6) entwickelt und stellt folgende Anforderungen an einen reibungslosen Betrieb:
+\begin{itemize}
+\item Java Runtime Environment 6 oder höher
+\item ausreichend leistungsfähiger Anwendungsserver; \texttt{\textbf{dvdshop}} wird für den Anwendungsserver GlassFish (Version 3.1) entwickelt, daher empfiehlt sich dessen Verwendung. GlassFish ist eine open source Software und daher absolut kostenfrei.\footnote{GlassFish Projektseite: \url{https://glassfish.dev.java.net/}}
+\item SQL: relationale Datenbank integriert im GlassFish Anwendungsserver zur persistenten Datenspeicherung
+\end{itemize}
+Auf der Clientseite existieren keine besonderen Anforderungen. \texttt{\textbf{dvdshop}} soll auf allen gängigen Browsern fehlerfrei darstellbar sein und funktionieren. Auf folgenden Browsern soll \texttt{\textbf{dvdshop}} mindestens fehlerfrei sind:
+\begin{itemize}
+\item Internet Explorer 8
+\item FireFox 3.6
+\item Safari
+\end{itemize}
+\subsection{Hardware}
+Es bestehen auf Server- wie auch auf Client-Seite keine besonderen Hardwareanforderungen. Auf jeder Hardware, auf der die in 3.1 genannten Softwarekomponenten laufen, ist das Betreiben bzw. das Benutzen von dvdshop möglich.
+%\subsection{Organisatorische Bedingungen}
+%Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\newpage
+\section{Produktfunktionen}
+\texttt{\textbf{dvdshop}} bietet seinen Anwendern verschiedene Funktionalitäten, Medien der Videothek zu sichten, vorzumerken oder sich eine gewisse Zeit zur Ausleihe zu reservieren.\par
+Die Andwender werden, wie in Kapitel 2.2 erwähnt, in drei verschiedene Gruppe eingeteilt, die auch unterschiedliche Funktionen nutzen können. In den folgenden Abschnitten werden die Funktionen von \texttt{\textbf{dvdshop}} für jede Benutzergruppe genannt.
+\subsection{Funktionen für nicht registrierte Benutzer}
+Nicht registrierte Kunden sind alle Benutzer der Webapplikation, die noch keinen Zugang haben, der durch Eingabe einer Kominbation aus Benutzername und Passwort realisiert wird oder diesen Zugang in der momentanen Sitzung noch nicht verwendet haben. Für diese Gruppe hat \texttt{\textbf{dvdshop}} einen sehr eingeschränkten Funktionsumfang. \texttt{\textbf{dvdshop}} bietet dieser Gruppe folgende Funktionen:
+\begin{itemize}
+\item F010: \\Anzeigen einer Liste des aktuellen DVD-Bestands alphabetisch sortiert nach Titeln
+\item F020: \\ Einsichtnahme in Details zu einem Titel wie Inhaltsangabe, Genre, Schau-spieler, Altersfreigabe
+\item F030: \\Suchen, Sortieren der Liste nach Kategorien wie Genre, Erscheinungsdatum (Aktualität)
+\item F040: \\Login mittels Benutzername und Passwort für den reservierten Bereich
+\end{itemize}
+\newpage
+\subsection{Funktionen für registrierte und eingeloggte Benutzer}
+Nach erfolgreichem Log-In eines Benutzers anhand seiner Nutzerdaten erweitert \texttt{\textbf{dvdshop}} seine Funktionen folgendermaßen:
+\begin{itemize}
+\item F050: \\Anzeigen der Liste wie in F010 mit Status des Mediums, d.h. verfügbar oder verliehen
+\item F060: \\Logout von angemeldeten Kunden
+\item F070: \\Verfügbare DVD reservieren
+\item F080: \\Reservierte DVD wieder freigeben
+\item F090: \\Nicht verfügbare DVD vormerken
+\item F100: \\Vorgemerkte DVD wieder freigeben
+\item F110: \\Liste der reservierten und vorgemerkten Titel anzeigen
+\item F120: \\Kundendaten anzeigen
+\end{itemize}
+Jede Sitzung eines angemeldeten Kunden muss über eine gesicherte Verbindung erfolgen, um dem Schutz der benutzerbezogenen Daten gerecht zu werden.
+\subsection{Funktionen für Administratoren der Anwendung}
+Es gibt einen oder mehrere Administratoren-Accounts innerhalb der Webanwendung, dem alle Funktionen zur Verfügung stehen. Der Adminstrator kann alle Daten verwalten. Ihm stehen folgende Funktionen zusätzlich zur Verfügung:
+\begin{itemize}
+\item F130: \\Anzeige einer Liste aller Kunden
+\item F140: \\Neukunden anlegen
+\item F150: \\Kunden löschen
+\item F160: \\Kundendaten aktualisieren
+\item F180: \\Neue DVD eintragen \newpage
+\item F190: \\DVD löschen
+\item F200: \\Status der DVD ändern (verfügbar/reserviert)
+\item F210: \\Genres aktualisieren
+\end{itemize}
+\newpage
+\section{Produktdaten}
+Die in den folgenden beiden Abschnitten genannten permanent zu speichernden Daten werden in einer noch zu wählenden passenden relationalen Datenbank abgelegt. Für jedes Datenfeld wird ein passender Eintragstyp gewählt.
+\subsection{Kundendaten}
+Für jeden Kunden werden folgende Daten permanent gespeichert:
+\begin{itemize}
+\item Benutzername
+\item Passwort bzw. Passwort-Hash
+\item E-Mail-Adresse
+\item Liste von aktuell reservierten DVDs
+\item Liste von aktuell vorgemerkten DVDs
+\end{itemize}
+
+\subsection{Daten des Medienbestandes}
+Der Medienbestand des Anbieters besteht aus der Menge seiner Medien. Für jedes Medien werden folgende Daten permanent gespeichert:
+\begin{itemize}
+\item Registrierungsnummer (eindeutig)
+\item Titel
+\item Anzahl gleicher DVDs
+\item Liste von zugehörigen Genres
+\item Status (verfügbar, nicht-verfügbar/reserviert, vorgemerkt)
+\item Inhaltsangabe
+\item Schauspieler
+\end{itemize}
+
+\newpage
+\section{Produktleistungen}
+Neben der korrekten und verlässlichen Bereitstellung der in Kapitel 4 vorgestellten Funktionen leistet dvdshop folgende Eigenschaften:
+\begin{itemize}
+\item L010: \\Benutzername und Passwort werden über eine gesicherte Verbindung übertragen.
+\item L020: \\Auch nach dem Login wird die gesamte Sitzung des Benutzers über eine sichere Verbindung abgehandelt.
+\item L030: \\Das Passwort wird zufällig generiert und per E-Mail an den Kunden versandt. Ein Ändern des Passworts durch den Kunden wird nicht unterstützt und ist auch nicht vorgesehen.
+\item L040: \\Vom Kunden können maximal drei verfügbare DVDs reserviert werden. Reservierte DVDs
+müssen innerhalb von 3 Tagen im DVD Shop abgeholt werden. Werden Sie innerhalb dieser Zeitspanne nicht abgeholt, erlöscht die Reservierung.
+\item L050: \\Vom Kunden können maximal drei nicht-verfügbare DVDs vorgemerkt werden. Ist eine
+vorgemerkte DVD verfügbar, wird der Kunde per E-Mail benachrichtigt.
+\end{itemize}
+
+\newpage
+\section{Benutzeroberfläche}
+Die Benutzeroberfläche der Webandwendung dvdshop beschränkt sich einzig und allein auf die Weboberfläche, die der Kunde über die Internetpräsenz des Anbieters erreicht.\par
+Diese Weboberfläche wird so erstellt, dass eine selbsterklärende und einfache Navigation zwischen den Seiten ensteht und eine rasche Informationsbeschaffung und Ausnutzung aller Funktionalitäten ermöglicht wird.\par
+Bei den technischen Aspekten der Webschnittstelle wird wertgelegt, dass dvdshop fehlerfrei auf allen gängigen Browsern dargestellt wird, um eine größtmögliche Akzeptanz bei der Zielgruppe zu erreichen.
+
+\newpage
+\section{Qualitätsziele}
+Die primären Qualitätsziele liegen neben der Korrektheit aller angebotenen Funktionalitäten auf die Benutzerfreundlichkeit und Kompatibiltät mit verschiedenen Endgeräten (Browsern). Der Erfolg der Online-Präsenz von dvdshop hängen direkt davon ab, wieviele Kunden die Webanwendung benutzen können und wollen.\par
+In der nachfolgenden Tabelle sind die verschiedenen Qualitätsziele und ihre Priorisierung gelistet:
+\begin{table}[h]							
+\begin{center}
+ \begin{tabular}{l|c|c|c|c}
+  ~ & sehr wichtig & wichtig & weniger wichtig & unwichtig\\
+  \hline \hline
+  Robustheit~ & \textbf{X}~ &  ~ ~ ~ &  ~ ~ ~ &  ~ ~ ~ \\
+  \hline
+  Zuverlässigkeit~ & \textbf{X}~ &  ~ ~ ~ &  ~ ~ ~ &  ~ ~ ~ \\
+  \hline
+  Korrektheit~ & \textbf{X}~ &  ~ ~ ~ &  ~ ~ ~ &  ~ ~ ~ \\
+  \hline
+  Benutzerfreundlichkeit~ &  \textbf{X} ~ & ~ ~ ~ &  ~ ~ ~ &  ~ ~ ~ \\
+  \hline
+  Effizienz~ &  ~ ~ ~ & \textbf{X}~ &  ~ ~ ~ &  ~ ~ ~ \\
+  \hline
+  Portierbarkeit~ &  ~ ~ ~ &  ~ ~ ~ & \textbf{X}~ &  ~ ~ ~ \\
+  \hline
+  Kompatibilität~ &  \textbf{X} ~ &  ~ ~ ~ & ~ ~ ~ &  ~ ~ ~ \\
+ \end{tabular}
+\end{center}
+\caption{Matrix der Qualitätsanforderungen}									% Bildbeschriftung
+\label{fig:Qualitaet}												% Sprungmarke fuer Verweise
+\end{table}
+
+
+
+\newpage
+\section{Testfälle}
+\texttt{\textbf{dvdshop}} wird nach einem Testkatalog getestet, der während der Planungs- und Entwicklungsphasen erstellt und erweitert wird.\par
+Es werden u. a. folgende relevante Eigenschaften und Szenarien getestet:
+\begin{itemize}
+\item Kompatibilität: \\Korrektheit aller Seiten auf den gängigsten Browsern.
+\item Korrekt aller Funktionen und Leistungen: \\Tests, die gewährleisten, dass alle Features von \texttt{\textbf{dvdshop}} so funktionieren wie definiert.
+\item Einhaltung des Rechte-Konzepts: \\Tests, die Einhaltung des implementieren Rechte-Konzepts überprüfen und gewährleisten, dass z.B. nicht registrierte Besucher keine Filme reservieren können usw.
+\end{itemize}
+
+\newpage
+\section{Entwicklungsumgebung}
+\subsection{Software}
+\begin{itemize}
+\item Betriebssystem: Ubuntu Linux 10.04/10.10
+\item Entwicklungsumgebung: Netbeans IDE 6.9.1
+\item Sprache: Java mit den Konzepten JEE 6, JDBC, JSP/JSF, JUnit
+\item weitere Software: git\footnote{git Projektseite: \url{https://glassfish.dev.java.net/}} als Versionsverwaltungssoftware, GlassFish als Anwendungsserver
+\end{itemize}
+\subsection{Hardware}
+Besondere Hardware wird zur Entwicklung nicht benötigt und auch nicht verwendet.
+
+\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+%\newpage
+\listoffigures
+
+\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+%\newpage
+\listoftables
+
+%\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+%\newpage
+%\lstlistoflistings
+
+\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+%\setcounter{secnumdepth}{1} 
+%Anhang!
+\begin{appendix}
+\pagenumbering{Roman}	
+
+%\setcounter{figure}{0}
+
+
+%\include{appendix.txt}
+
+
+\end{appendix}
+%\end{anhang}
+
+%\newpage
+%\thispagestyle{empty}
+%\mbox{}
+
+\end{document}

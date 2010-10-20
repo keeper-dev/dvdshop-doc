@@ -1,0 +1,85 @@
+\section{Anhang: Beispiel AES-Verschlüsselung mit der Sun JCE}
+AES-Verschlüsselung mit der Sun JCE
+Einkommentieren !
+%\lstinputlisting[captionpos=b, caption=JCE AES Example]{listings/appendix/1_jcaAesExample.java}
+%
+%Beispiel HMAC-MD5 aus der Sun JCE
+%\lstinputlisting*[captionpos=b, caption=JCE HMAC-MD5 Example]{listings/0_hmacmd5_example.java}
+
+%Listings können, anders als Grafiken und Tabellen nicht
+%per * aus dem Listingsverzeichnis herausgelassen werden!
+%Falls ein Listing (z. B. im Anhang) nicht in das Verzeichnis
+%soll muss getrickst werden: 
+%	1. Auskommentieren der Listings im Anhang -> pro Listing ein \newpage,
+%	dass die Seitenzahl des Anhangs gleich bleibt
+% 2. Setzen, sodass nur noch Listings des eigentlichen Dokuments im VZ
+%	WICHTIG: PDF jetzt wegspeichern!
+% 3. Änderungen von 1. rückgängig machen, alles setzen, sodass Anhang wieder passt
+% Das eigentliche, resultieren Dokument setzt sich jetzt aus dem PDF von 2.
+% (inkl. Listingsverzeichnis) + Anhang von 3. zusammen
+% Besserer Weg?!?!?
+
+\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+
+\section{Anhang: Abbildung JMX-Konsole}
+\begin{figure}[h]					
+\centering
+Einkommentieren!
+%\includegraphics[scale=0.75]{pics/7_jmx_console.png}		% Grafikeinbindung mit Dateiname und Groessenangabe			% ([width=], [height=], [scale=1.00]...)
+\caption{Screenshot der JMX-Weboberfläche}		% Bildbeschriftung
+\label{fig:Fabrikmethode}							% Sprungmarke fuer Verweise
+\end{figure} 	\vspace{-12pt}
+
+\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+
+
+\newpage
+\section{Anhang: verschiedene LaTeX-Tests}
+%Fussnoten-Tests:
+%\footnote{\citep[vgl. ][S. 1]{Schmeh2009}}
+%\footnote{\citep[vgl. ][S. 23]{Schmeh2009}}
+%\footnote{\citep[vgl. ][S. 1-100]{Schneier1996}}
+%\footnote{\citep[vgl. ][S. 1]{Monson-Haefel2009}}
+%\citep[vgl. ][S. 1]{Langner2006}
+%\citep[vgl. ][S. 1]{Lipp2000}
+%\citep[vgl. ][S. 1]{Backschat2007}
+%\footnote{\citep[vgl. ][]{Schneier1996}}
+
+%nocite bewirkt,d ass das ganze bib geschrieben wird, auch wenn noch keine cites (referenz) im text auf jedes element existieren
+\nocite{*}
+
+\newpage
+Folgendes Bild ist im Abbildungsverzeichnis:
+\begin{figure}[h]							
+\centering 
+Einkommentieren!
+%\includegraphics[scale=1.0]{pics/giesecke_devrient_ger.png}		% Grafikeinbindung mit Dateiname und Groessenangabe												% ([width=], [height=], [scale=1.00]...)
+\caption{Logo von Giesecke \& Devrient}									% Bildbeschriftung
+\label{fig:LogoGD}												% Sprungmarke fuer Verweise
+\end{figure}
+
+Folgendes Bild ist NICHT im Abbildungsverzeichnis: \\ %einfach  den figure-mantel weglassen
+\begin{center}
+Einkommentieren!
+%\includegraphics*[scale=1.0]{pics/giesecke_devrient_ger.png}	
+\end{center}
+
+Tabellenobjekt: hier ist ein Bild in einer Tabelle mit einer Spalte und einer Zelle:
+So können z.B. Tabellen, die als Bilddatei vorliegen als Tabelle betitelt und auch ins Tabellen-VZ aufgenommen werden.
+\begin{table}[h]							
+\centering 
+Einkommentieren!
+%\includegraphics[scale=1.0]{pics/giesecke_devrient_ger.png}		% Grafikeinbindung mit Dateiname und Groessenangabe													% ([width=], [height=], [scale=1.00]...)
+\caption{Logo von Giesecke \& Devrient als Tabelle deklariert}									% Bildbeschriftung
+\label{fig:LogoGD}												% Sprungmarke fuer Verweise
+\end{table}
+
+
