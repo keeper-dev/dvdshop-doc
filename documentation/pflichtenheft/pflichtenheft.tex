@@ -1,10 +1,10 @@
-
 %Schriftgroesse, Layout, Papierformat, Art des Dokumentes
 %Hinweis: statt oneside einfach twoside für doppelseitigen druck!
 \documentclass[12pt,oneside,a4paper,bibtotoc,liststotoc,pointlessnumbers]{scrartcl}
 
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
+\usepackage[babel,german=quotes]{csquotes} %enquote befehl => deutsche anführungszeichen
 
 %etwas schoenere serifen-schrift (mit schnoerkel)
 %
@@ -245,7 +245,8 @@ backgroundcolor=\color{white}, % Hintergrundfarbe
 \end{center}
 \vspace*{180pt}
 
-\textsf{\large{Stand: 04.11.2010}}\\
+\textsf{\large{Stand: %04.11.2010}}\\
+\today}}\\
 \vspace*{20pt}
 \\ 
 
@@ -269,7 +270,7 @@ Teilnehmer: \hspace*{0.5cm}Michael Bien, Benedikt Lippert,\\
 \thispagestyle{empty}
 \section*{Kurzzusammenfassung}
 Dies ist das Pflichtenheft zur semesterbegleitenden Praktikumsaufgabe der Vorlesung "`Softwarearchitekturen und -design" des Master-Studiengangs Informatik an der Hochschule Landshut im Wintersemester 2010/2011. Ziel des Praktikums ist eine Webapplikation, die es ermöglicht, den Medienbestand einer Videothek online einzusehen, Titel vorzumerken sowie für eine gewisse Zeit zu reservieren. \par
-Dieses Pflichtenheft ist nach dem Gliederungsvorschlag von Prof. Dr. Helmut Balzert (Ruhr-Universität Bochum) aus seinem Buch "`Lehrbuch der Softwaretechnik"\footnote{Helmut Balzert - Lehrbuch der Softwaretechnik \url{http://amazon.de/o/ASIN/3827417058/}} strukturiert und gibt eine Übersicht der Anforderungen an der in diesem Studienpraktikum zu realisierenden Softwarekomponente.
+Dieses Pflichtenheft ist nach dem Gliederungsvorschlag von Prof. Dr. Helmut Balzert (Ruhr-Universität Bochum) aus seinem Buch \enquote{Lehrbuch der Softwaretechnik}\footnote{Helmut Balzert - Lehrbuch der Softwaretechnik \url{http://amazon.de/o/ASIN/3827417058/}} strukturiert und gibt eine Übersicht der Anforderungen an der in diesem Studienpraktikum zu realisierenden Softwarekomponente.
 %\section*{Abstract}
 %Wenn gewünscht, auch noch eine englische Zusammenfassung...
 
@@ -307,7 +308,7 @@ Die im Folgenden genannten Punkte stellen unabdingbare Produktleistungen dar
 \begin{itemize}
 \item Jeder Kunde kann den Medienkatalog der Videothek einsehen, z.B. in Form einer geordneten Liste.
 \item Registrierte Kunden können bis zu drei Medien für 30 Minuten reservieren, was bedeutet, dass diese Medien in diesem Zeitraum von keinem anderen Kunden reserviert oder ausgeliehen werden können.
-\item Registrierte Kunden können aktuell nicht verfügbare Medien "`vormerken" und werden per eMail informiert, sobald der Titel wieder ausleihbar ist.
+\item Registrierte Kunden können aktuell nicht verfügbare Medien \enquote{vormerken} und werden per eMail informiert, sobald der Titel wieder ausleihbar ist.
 \item Administratoren der Webapplikationen haben Möglichkeiten, online Medien- und Kundendaten zu verwalten (einsehen, aktualisieren, entfernen).
 \item Um die o.g. Punkte zu realisieren, muss eine geeignete Benutzergruppentrennung erfolgen. 
 \item Die Anwendung muss auf den gängigsten Browsern und Betriebssystemen voll funktionieren.
@@ -319,7 +320,7 @@ Folgende Punkte sind nicht zwingend in der ersten Version der Webapplikation zu 
 \item Von einem registrierten Benutzer in der Vergangenheit ausgeliehene Titel werden für ihn in Zukunft besonders markiert.
 \item Jedes Medium wird nicht nur textuell und durch eine Bilddatei repräsentiert, sondern darüber hinaus wird ein offizieller Trailer oder Filmausschnitt als multimediales Element mit eingebunden.
 \item Die Medien bekommen verschiedene Attribute wie Genre, Erscheinungsjahr, Personen (Regisseure, Schauspieler ...) zugeordnet, die für spätere Such- und Sortierfunktionen genutzt werden können.
-\item Die Benutzer sollen Möglichkeiten bekommen, miteinander über bestimmte Themen miteinander zu kommunizieren.
+\item Die Benutzer sollen Möglichkeiten bekommen, miteinander über bestimmte Themen zu kommunizieren.
 \end{itemize}
 \subsection{Ausschluss-Kriterien}
 Nicht Bestandteil sind Schnittstellen an evtl. schon bestehende Medienverwaltungssysteme oder die Erstellung weiterer Benutzerschnittstellen z.B. für mobile Endgeräte (Smartphones etc.).
@@ -328,7 +329,7 @@ Nicht Bestandteil sind Schnittstellen an evtl. schon bestehende Medienverwaltung
 \subsection{Anwendungsbereich}
 Die Webapplikation wird als reine webbasierte Client-Server-Anwendung konzipiert und als eine solche später betrieben.\par
 Die Anwendung kann auf einem direkt vom Anbieter betriebenen Web- bzw. Anwendungsserver oder auf einem dedizierten Server gehostet und betrieben werden.\par
-Als Clients sind ausschließlich die Kunden vorgesehen, die über ihre Webbrowser und der Internetpräsenz des Anbieters Zugriff auf die Anwendung erhalten. 
+Als Clients sind ausschließlich die Kunden vorgesehen, die mittels Webbrowser und der Internetpräsenz des Anbieters Zugriff auf die Anwendung erhalten. 
 \subsection{Benutzergruppen}
 Die Webanwendung zielt auf alle Bestandskunden sowie auf potentielle Neukunden der Videothek ab und soll auch von diesen benutzt werden.\par
 Der Funktionsumfang der Webanwendung ist je nach Status des Anwenders variabel.
@@ -345,7 +346,7 @@ Es ist ein späterer 24h-Betrieb der Webapplikation auf einem in 2.1 genannten S
 \texttt{\textbf{dvdshop}} wird als Webanwendung auf Basis der Java Platform, Enterprise Edition Version 6 (JEE 6) entwickelt und stellt folgende Anforderungen an einen reibungslosen Betrieb:
 \begin{itemize}
 \item Java Runtime Environment 6 oder höher
-\item ausreichend leistungsfähiger Anwendungsserver; \texttt{\textbf{dvdshop}} wird für den Anwendungsserver GlassFish (Version 3.1) entwickelt, daher empfiehlt sich dessen Verwendung. GlassFish ist eine open source Software und daher absolut kostenfrei.\footnote{GlassFish Projektseite: \url{https://glassfish.dev.java.net/}}
+\item ausreichend leistungsfähiger Anwendungsserver; \texttt{\textbf{dvdshop}} wird für den Anwendungsserver GlassFish (Version 3.1) entwickelt, daher empfiehlt sich dessen Verwendung. GlassFish ist eine open source Software unter der GPLv2 lizenziert und kann daher kostenfrei genutzt werden.\footnote{GlassFish Projektseite: \url{https://glassfish.dev.java.net/}}
 \item SQL: relationale Datenbank integriert im GlassFish Anwendungsserver zur persistenten Datenspeicherung
 \end{itemize}
 Auf der Clientseite existieren keine besonderen Anforderungen. \texttt{\textbf{dvdshop}} soll auf allen gängigen Browsern fehlerfrei darstellbar sein und funktionieren. Auf folgenden Browsern soll \texttt{\textbf{dvdshop}} mindestens fehlerfrei sind:
@@ -499,7 +500,7 @@ Besondere Hardware wird zur Entwicklung nicht benötigt und auch nicht verwendet
 %\newpage
 
 %\newpage
-\listoffigures
+%\listoffigures
 
 \newpage
 %\thispagestyle{empty}
