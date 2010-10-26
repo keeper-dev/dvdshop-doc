@@ -366,18 +366,18 @@ Von dem Produkt \texttt{\textbf{dvdshop}} ausgehend bestehen auf Server- sowie a
 \newpage
 \section{Produktfunktionen}
 \texttt{\textbf{dvdshop}} bietet seinen Anwendern verschiedene Funktionalitäten, Medien der Videothek zu sichten, vorzumerken oder sich eine gewisse Zeit zur Ausleihe zu reservieren.\par
-Die Andwender werden, wie in Kapitel 2.2 erwähnt, in drei verschiedene Gruppe eingeteilt, die auch unterschiedliche Funktionen nutzen können. In den folgenden Abschnitten werden die Funktionen von \texttt{\textbf{dvdshop}} für jede Benutzergruppe genannt.
+Die Anwender werden, wie in Kapitel 2.2 erwähnt, in drei verschiedene Gruppe eingeteilt, die auch unterschiedliche Funktionen nutzen können. In den folgenden Abschnitten werden die Funktionen von \texttt{\textbf{dvdshop}} für jede Benutzergruppe genannt.
 \subsection{Funktionen für nicht registrierte Benutzer}
-Nicht registrierte Kunden sind alle Benutzer der Webapplikation, die noch keinen Zugang haben, der durch Eingabe einer Kominbation aus Benutzername und Passwort realisiert wird oder diesen Zugang in der momentanen Sitzung noch nicht verwendet haben. Für diese Gruppe hat \texttt{\textbf{dvdshop}} einen sehr eingeschränkten Funktionsumfang. \texttt{\textbf{dvdshop}} bietet dieser Gruppe folgende Funktionen:
+Nicht registrierte Kunden sind alle Benutzer der Webapplikation, die noch keinen Zugang haben, der durch Eingabe einer Kombination aus Benutzername und Passwort realisiert wird oder diesen Zugang in der momentanen Sitzung noch nicht verwendet haben. Für diese Gruppe hat \texttt{\textbf{dvdshop}} einen sehr eingeschränkten Funktionsumfang. \texttt{\textbf{dvdshop}} bietet dieser Gruppe folgende Funktionen:
 \begin{itemize}
 \item F010: \\Anzeigen einer Liste des aktuellen DVD-Bestands alphabetisch sortiert nach Titeln
-\item F020: \\ Einsichtnahme in Details zu einem Titel wie Inhaltsangabe, Genre, Schau-spieler, Altersfreigabe
+\item F020: \\ Einsichtnahme in Details zu einem Titel wie Inhaltsangabe, Genre, Schauspieler, Altersfreigabe
 \item F030: \\Suchen, Sortieren der Liste nach Kategorien wie Genre, Erscheinungsdatum (Aktualität)
-\item F040: \\Login mittels Benutzername und Passwort für den reservierten Bereich
+\item F040: \\Login mittels Benutzername und Passwort
 \end{itemize}
 \newpage
 \subsection{Funktionen für registrierte und eingeloggte Benutzer}
-Nach erfolgreichem Log-In eines Benutzers anhand seiner Nutzerdaten erweitert \texttt{\textbf{dvdshop}} seine Funktionen folgendermaßen:
+Nach erfolgreichem Login eines Benutzers anhand seiner Nutzerdaten erweitert \texttt{\textbf{dvdshop}} seine Funktionen folgendermaßen:
 \begin{itemize}
 \item F050: \\Anzeigen der Liste wie in F010 mit Status des Mediums, d.h. verfügbar oder verliehen
 \item F060: \\Logout von angemeldeten Kunden
@@ -388,9 +388,9 @@ Nach erfolgreichem Log-In eines Benutzers anhand seiner Nutzerdaten erweitert \t
 \item F110: \\Liste der reservierten und vorgemerkten Titel anzeigen
 \item F120: \\Kundendaten anzeigen
 \end{itemize}
-Jede Sitzung eines angemeldeten Kunden muss über eine gesicherte Verbindung erfolgen, um dem Schutz der benutzerbezogenen Daten gerecht zu werden.
-\subsection{Funktionen für Administratoren der Anwendung}
-Es gibt einen oder mehrere Administratoren-Accounts innerhalb der Webanwendung, dem alle Funktionen zur Verfügung stehen. Der Adminstrator kann alle Daten verwalten. Ihm stehen folgende Funktionen zusätzlich zur Verfügung:
+Die Sitzung eines registrierten Benutzers erfolgt immer über eine gesicherte Verbindung.
+\subsection{Funktionen für Administratoren}
+Es gibt einen oder mehrere Administratoren-Accounts innerhalb der Webanwendung, dem alle Funktionen zur Verfügung stehen. Der Administrator kann alle Daten verwalten. Ihm stehen folgende Funktionen zusätzlich zur Verfügung:
 \begin{itemize}
 \item F130: \\Anzeige einer Liste aller Kunden
 \item F140: \\Neukunden anlegen
@@ -403,19 +403,19 @@ Es gibt einen oder mehrere Administratoren-Accounts innerhalb der Webanwendung, 
 \end{itemize}
 \newpage
 \section{Produktdaten}
-Die in den folgenden beiden Abschnitten genannten permanent zu speichernden Daten werden in einer noch zu wählenden passenden relationalen Datenbank abgelegt. Für jedes Datenfeld wird ein passender Eintragstyp gewählt.
+Die in den folgenden beiden Abschnitten genannten, permanent zu speichernden, Daten werden in einer passenden relationalen Datenbank abgelegt. Für jedes Datenfeld wird ein passender Datenbank-Typ gewählt.
 \subsection{Kundendaten}
 Für jeden Kunden werden folgende Daten permanent gespeichert:
 \begin{itemize}
 \item Benutzername
-\item Passwort bzw. Passwort-Hash
+\item Passwort bzw. salted Passwort-Hash
 \item E-Mail-Adresse
 \item Liste von aktuell reservierten DVDs
 \item Liste von aktuell vorgemerkten DVDs
 \end{itemize}
 
 \subsection{Daten des Medienbestandes}
-Der Medienbestand des Anbieters besteht aus der Menge seiner Medien. Für jedes Medien werden folgende Daten permanent gespeichert:
+Der Medienbestand des Anbieters besteht aus der Menge seiner Medien. Für jedes Medium werden folgende Daten permanent gespeichert:
 \begin{itemize}
 \item Registrierungsnummer (eindeutig)
 \item Titel
@@ -423,7 +423,7 @@ Der Medienbestand des Anbieters besteht aus der Menge seiner Medien. Für jedes 
 \item Liste von zugehörigen Genres
 \item Status (verfügbar, nicht-verfügbar/reserviert, vorgemerkt)
 \item Inhaltsangabe
-\item Schauspieler
+\item Am Film beteiligte Personen
 \end{itemize}
 
 \newpage
@@ -432,22 +432,22 @@ Neben der korrekten und verlässlichen Bereitstellung der in Kapitel 4 vorgestel
 \begin{itemize}
 \item L010: \\Benutzername und Passwort werden über eine gesicherte Verbindung übertragen.
 \item L020: \\Auch nach dem Login wird die gesamte Sitzung des Benutzers über eine sichere Verbindung abgehandelt.
-\item L030: \\Das Passwort wird zufällig generiert und per E-Mail an den Kunden versandt. Ein Ändern des Passworts durch den Kunden wird nicht unterstützt und ist auch nicht vorgesehen.
+\item L030: \\Das Passwort wird zufällig generiert und per E-Mail an den Kunden versandt. Ein Ändern des Passworts durch den Kunden wird nicht unterstützt.
 \item L040: \\Vom Kunden können maximal drei verfügbare DVDs reserviert werden. Reservierte DVDs
-müssen innerhalb von 3 Tagen im DVD Shop abgeholt werden. Werden Sie innerhalb dieser Zeitspanne nicht abgeholt, erlöscht die Reservierung.
-\item L050: \\Vom Kunden können maximal drei nicht-verfügbare DVDs vorgemerkt werden. Ist eine
+müssen innerhalb von 3 Tagen im Shop abgeholt werden. Werden Sie innerhalb dieser Zeitspanne nicht abgeholt, erlöscht die Reservierung.
+\item L050: \\Vom Kunden können maximal drei nicht verfügbare DVDs vorgemerkt werden. Ist eine
 vorgemerkte DVD verfügbar, wird der Kunde per E-Mail benachrichtigt.
 \end{itemize}
 
 \newpage
 \section{Benutzeroberfläche}
-Die Benutzeroberfläche der Webandwendung dvdshop beschränkt sich einzig und allein auf die Weboberfläche, die der Kunde über die Internetpräsenz des Anbieters erreicht.\par
-Diese Weboberfläche wird so erstellt, dass eine selbsterklärende und einfache Navigation zwischen den Seiten ensteht und eine rasche Informationsbeschaffung und Ausnutzung aller Funktionalitäten ermöglicht wird.\par
-Bei den technischen Aspekten der Webschnittstelle wird wertgelegt, dass dvdshop fehlerfrei auf allen gängigen Browsern dargestellt wird, um eine größtmögliche Akzeptanz bei der Zielgruppe zu erreichen.
+Die Benutzeroberfläche der Webandwendung dvdshop beschränkt sich ausschließlich auf die Weboberfläche, die der Kunde über die Internetpräsenz des Anbieters erreicht.\par
+Diese Weboberfläche wird so erstellt, dass eine intuitive und einfache Navigation zwischen den Seiten entsteht und eine rasche Informationsbeschaffung und Ausnutzung aller Funktionalitäten ermöglicht wird.\par
+Bei den technischen Aspekten der Webschnittstelle wird darauf wert gelegt, dass dvdshop fehlerfrei auf allen gängigen Browsern dargestellt wird, um eine größtmögliche Akzeptanz bei der Zielgruppe zu erreichen.
 
 \newpage
 \section{Qualitätsziele}
-Die primären Qualitätsziele liegen neben der Korrektheit aller angebotenen Funktionalitäten auf die Benutzerfreundlichkeit und Kompatibiltät mit verschiedenen Endgeräten (Browsern). Der Erfolg der Online-Präsenz von dvdshop hängen direkt davon ab, wieviele Kunden die Webanwendung benutzen können und wollen.\par
+Die primären Qualitätsziele liegen neben der Korrektheit aller angebotenen Funktionalitäten auf der Benutzerfreundlichkeit und Kompatibilität mit verschiedenen Browsern. Der Erfolg der Online-Präsenz von dvdshop hängt direkt davon ab, wie viele Kunden die Webanwendung benutzen können und wollen.\par
 In der nachfolgenden Tabelle sind die verschiedenen Qualitätsziele und ihre Priorisierung gelistet:
 \begin{table}[h]							
 \begin{center}
@@ -481,8 +481,8 @@ In der nachfolgenden Tabelle sind die verschiedenen Qualitätsziele und ihre Pri
 Es werden u. a. folgende relevante Eigenschaften und Szenarien getestet:
 \begin{itemize}
 \item Kompatibilität: \\Korrektheit aller Seiten auf den gängigsten Browsern.
-\item Korrekt aller Funktionen und Leistungen: \\Tests, die gewährleisten, dass alle Features von \texttt{\textbf{dvdshop}} so funktionieren wie definiert.
-\item Einhaltung des Rechte-Konzepts: \\Tests, die Einhaltung des implementieren Rechte-Konzepts überprüfen und gewährleisten, dass z.B. nicht registrierte Besucher keine Filme reservieren können usw.
+\item Korrektheit aller Funktionen und Leistungen: \\Tests, die gewährleisten, dass alle Features von \texttt{\textbf{dvdshop}} so funktionieren wie definiert.
+\item Einhaltung des Rechte-Konzepts: \\Tests, die Einhaltung des implementieren Rechte-Konzepts überprüfen und gewährleisten.
 \end{itemize}
 
 \newpage
