@@ -306,29 +306,29 @@ In diesem und in den folgenden Kapiteln werden diese Aktivitäten und der  darü
 \subsection{Muss-Kriterien}
 Die im Folgenden genannten Punkte stellen unabdingbare Produktleistungen dar
 \begin{itemize}
-\item Jeder Kunde kann den Medienkatalog der Videothek einsehen, z.B. in Form einer geordneten Liste.
+\item Jeder Kunde kann den Medienkatalog der Videothek einsehen, in Form einer geordneten Liste.
 \item Registrierte Kunden können bis zu drei Medien für 30 Minuten reservieren, was bedeutet, dass diese Medien in diesem Zeitraum von keinem anderen Kunden reserviert oder ausgeliehen werden können.
-\item Registrierte Kunden können aktuell nicht verfügbare Medien \enquote{vormerken} und werden per eMail informiert, sobald der Titel wieder ausleihbar ist.
+\item Registrierte Kunden können aktuell nicht verfügbare Medien \enquote{vormerken} und werden per eMail informiert, sobald der Titel wieder verfügbar ist.
 \item Administratoren der Webapplikationen haben Möglichkeiten, online Medien- und Kundendaten zu verwalten (einsehen, aktualisieren, entfernen).
 \item Um die o.g. Punkte zu realisieren, muss eine geeignete Benutzergruppentrennung erfolgen. 
-\item Die Anwendung muss auf den gängigsten Browsern und Betriebssystemen voll funktionieren.
+\item Die Webapplikation muss in allen gängigen Browsern funktionieren.
 \end{itemize}
 \subsection{Wunsch-Kriterien}
 Folgende Punkte sind nicht zwingend in der ersten Version der Webapplikation zu erstellen, würden aber das Angebot an Funktionen erweitern:
 \begin{itemize}
 \item Registrierte Benutzer können eine Liste aller ihrer bisher ausgeliehenen Titel einsehen.
-\item Von einem registrierten Benutzer in der Vergangenheit ausgeliehene Titel werden für ihn in Zukunft besonders markiert.
-\item Jedes Medium wird nicht nur textuell und durch eine Bilddatei repräsentiert, sondern darüber hinaus wird ein offizieller Trailer oder Filmausschnitt als multimediales Element mit eingebunden.
-\item Die Medien bekommen verschiedene Attribute wie Genre, Erscheinungsjahr, Personen (Regisseure, Schauspieler ...) zugeordnet, die für spätere Such- und Sortierfunktionen genutzt werden können.
+\item Von einem registrierten Benutzer werden in der Vergangenheit ausgeliehene Titel für ihn als \enquote{bereits gesehen} markiert.
+\item Jedes Medium wird nicht nur durch Text und Bild präsentiert, sondern darüber hinaus wird ein offizieller Trailer und/oder Filmausschnitt, falls vorhanden, als multimediales Element eingebunden.
+\item Die Medien bekommen verschiedene Attribute wie Genre, Erscheinungsjahr, Personen (Produzenten, Regisseure, Schauspieler, Synchronsprecher) zugeordnet, die für spätere Such- und Sortierfunktionen genutzt werden können.
 \item Die Benutzer sollen Möglichkeiten bekommen, miteinander über bestimmte Themen zu kommunizieren.
 \end{itemize}
 \subsection{Ausschluss-Kriterien}
-Nicht Bestandteil sind Schnittstellen an evtl. schon bestehende Medienverwaltungssysteme oder die Erstellung weiterer Benutzerschnittstellen z.B. für mobile Endgeräte (Smartphones etc.).
+Nicht Bestandteil sind Schnittstellen an evtl. schon bestehende Medienverwaltungssysteme oder die Erstellung weiterer Benutzerschnittstellen z.B. für mobile Endgeräte.
 \newpage
 \section{Produkteinsatz}
 \subsection{Anwendungsbereich}
 Die Webapplikation wird als reine webbasierte Client-Server-Anwendung konzipiert und als eine solche später betrieben.\par
-Die Anwendung kann auf einem direkt vom Anbieter betriebenen Web- bzw. Anwendungsserver oder auf einem dedizierten Server gehostet und betrieben werden.\par
+Die Anwendung kann auf einem direkt vom Anbieter betriebenen Web- bzw. Anwendungsserver oder auf einem dedizierten Server gehostet und betrieben werden, sofern die nötigen technischen Voraussetzungen aus Kapitel 3.1 und 3.2 erfüllt sind.\par
 Als Clients sind ausschließlich die Kunden vorgesehen, die mittels Webbrowser und der Internetpräsenz des Anbieters Zugriff auf die Anwendung erhalten. 
 \subsection{Benutzergruppen}
 Die Webanwendung zielt auf alle Bestandskunden sowie auf potentielle Neukunden der Videothek ab und soll auch von diesen benutzt werden.\par
@@ -339,7 +339,7 @@ Der Funktionsumfang der Webanwendung ist je nach Status des Anwenders variabel.
 \item Administratoren können den Datenbestand einsehen, modifizieren und Inhalte hinzufügen und löschen.
 \end{itemize}
 \subsection{Betriebsbedingungen}
-Es ist ein späterer 24h-Betrieb der Webapplikation auf einem in 2.1 genannten System vorgesehen.
+Es ist ein späterer 24h-Betrieb der Webapplikation auf einem in Kapitel 2.1 genannten System vorgesehen.
 \newpage
 \section{Produktumgebung}
 \subsection{Software}
@@ -351,12 +351,15 @@ Es ist ein späterer 24h-Betrieb der Webapplikation auf einem in 2.1 genannten S
 \end{itemize}
 Auf der Clientseite existieren keine besonderen Anforderungen. \texttt{\textbf{dvdshop}} soll auf allen gängigen Browsern fehlerfrei darstellbar sein und funktionieren. Auf folgenden Browsern soll \texttt{\textbf{dvdshop}} mindestens fehlerfrei sind:
 \begin{itemize}
-\item Internet Explorer 8
-\item FireFox 3.6
-\item Safari
+\item Internet Explorer 7.0 und 8.0
+\item FireFox 3.5 und 3.6
+\item Safari 5.x
+\item Opera 10.x
+\item Google Chrome 7.x
 \end{itemize}
+Außerdem wird vorausgesetzt das im Browser Cookies und JavaScript aktiviert sind. Eine entsprechende Funktionsprüfung des Browsers findet nicht statt.
 \subsection{Hardware}
-Es bestehen auf Server- wie auch auf Client-Seite keine besonderen Hardwareanforderungen. Auf jeder Hardware, auf der die in 3.1 genannten Softwarekomponenten laufen, ist das Betreiben bzw. das Benutzen von dvdshop möglich.
+Von dem Produkt \texttt{\textbf{dvdshop}} ausgehend bestehen auf Server- sowie auf Client-Seite keine besonderen Hardwareanforderungen. Auf jeder Hardware, auf der die in 3.1 genannten Softwarekomponenten laufen, ist das Betreiben bzw. das Benutzen von dvdshop möglich. Das Bewältigen von hohem Traffic-Aufkommen ist durch den entsprechenden Systemadministrator des Betreibers zu kompensieren und nicht Aufgabe von \texttt{\textbf{dvdshop}}.
 %\subsection{Organisatorische Bedingungen}
 %Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
